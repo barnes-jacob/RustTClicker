@@ -1,0 +1,27 @@
+{
+  "productName": "RestT-AutoClicker",
+  "version": "0.1.0",
+  "identifier": "com.example.autoclicker", 
+
+  "build": {
+    "frontendDist": "../src"
+  },
+
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "AutoClicker",
+        "width": 600,
+        "height": 650,
+        "resizable": true   
+      }
+    ]
+  },
+
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": []
+  }
+}

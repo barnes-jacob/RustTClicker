@@ -1,0 +1,21 @@
+[package]
+name = "rustT-autoclicker"
+version = "0.1.0"
+authors = ["Jacob Barnes <yourfriends@gatebreaker.games>"]
+edition = "2021"
+description = "A modern auto clicker built with Rust, Tauri, and Tailwind."
+
+[dependencies]
+tauri = { version = "2.4.1", features = [] }
+
+enigo = "0.1"
+
+rdev = "0.5"
+
+rand = "0.8"
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[build-dependencies]
+tauri-build = { version = "2.4.1", features = [] }

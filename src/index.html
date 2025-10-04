@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Rust-T AutoCLicker</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-900 text-white min-h-screen flex flex-col items-center p-4">
+        <h1 class="text-3xl font-bold mb-6">Rust-T AutoClicker</h1>
+        <div class="w-full max-w-md space-y-4">
+            <div>
+                <label for="interval" class="block mb-1">Interval (ms)</label>
+                <input
+                    id="interval"
+                    type="number"
+                    value="50"
+                    min="1"
+                    class="w-full rounded-md px-3 py-2 text-gray-900"/>
+            </div>
+            <div class="flex space-x-4">
+                <div class="flex-1">
+                    <label for="random-minus" class="block mb-1">Random − (ms)</label>
+                    <input
+                        id="random-minus"
+                        type="number"
+                        value="0"
+                        min="0"
+                        class="w-full rounded-md px-3 py-2 text-gray-900"/>
+                </div>
+                <div class="flex-1">
+                    <label for="random-plus" class="block mb-1">Random + (ms)</label>
+                    <input
+                        id="random-plus"
+                        type="number"
+                        value="0"
+                        min="0"
+                        class="w-full rounded-md px-3 py-2 text-gray-900"/>
+                </div>
+            </div>
+            <div>
+                <label for="button" class="block mb-1">Mouse Button</label>
+                <select id="button" class="w-full rounded-md px-3 py-2 text-gray-900">
+                    <option value="left">Left</option>
+                    <option value="right">Right</option>
+                    <option value="middle">Middle</option>
+                </select>
+            </div>
+            <div class="flex items-center space-x-2">
+                <input id="double-click" type="checkbox" class="h-4 w-4 text-blue-600" />
+                <label for="double-click">Double Click</label>
+            </div>
+            <div>
+                <label for="clicks" class="block mb-1">Number of clicks (0 for infinite)</label>
+                <input
+                    id="clicks"
+                    type="number"
+                    value="0"
+                    min="0"
+                    class="w-full rounded-md px-3 py-2 text-gray-900"/>
+            </div>
+            <div class="flex items-center space-x-2">
+                <input id="follow-cursor" type="checkbox" checked class="h-4 w-4 text-blue-600" />
+                <label for="follow-cursor">Click at current cursor position</label>
+            </div>
+            <div id="fixed-pos" class="space-y-2 hidden">
+                <div>
+                    <label for="pos-x" class="block mb-1">X coordinate</label>
+                    <input
+                        id="pos-x"
+                        type="number"
+                        value="0"
+                        class="w-full rounded-md px-3 py-2 text-gray-900"/>
+                </div>
+                <div>
+                    <label for="pos-y" class="block mb-1">Y coordinate</label>
+                    <input
+                        id="pos-y"
+                        type="number"
+                        value="0"
+                        class="w-full rounded-md px-3 py-2 text-gray-900"/>
+                </div>
+            </div>
+            <div class="flex justify-between mt-6">
+                <button
+                    id="start-btn"
+                    class="flex-1 mr-2 px-4 py-2 bg-green-600 hover:bg-green-700 rounded-md">
+                    Start (F6)
+                </button>
+                <button
+                    id="stop-btn"
+                    class="flex-1 ml-2 px-4 py-2 bg-red-600 hover:bg-red-700 rounded-md">
+                    Stop (F6)
+                </button>
+            </div>
+            <div id="total-clicks" class="text-center mt-4 text-sm text-gray-400">
+                Total Clicks: 0
+            </div>                
+            <div id="status" class="text-center mt-4 text-sm text-gray-400">
+                Stopped
+            </div>        
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
