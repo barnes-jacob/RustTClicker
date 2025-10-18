@@ -102,6 +102,24 @@ function hook() {
         }
     });
 
+    f6Listener = async (e) => {
+        if (e.key === "F6") {
+            try {
+                const running = await tauriInvoke("is_running");
+                if (running) {
+                    await tauriInvoke("stop_clicking");
+                    statusEl.textContent = "Stopped";
+                } else {
+                    await tauriInvoke("start_clicking", { newCfg: gatherConfig() });
+                    statusEl.textContent = "Running…";
+                }
+            } catch (e) {
+                console.error("F6 handler error:", e);
+            }
+        }
+    };
+    window.addEventListener("keydown", f6Listener);
+
     setInterval(async () => {
         try {
             const running = await tauriInvoke("is_running");
