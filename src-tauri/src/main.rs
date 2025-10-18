@@ -120,6 +120,12 @@ mod cmds {
     pub fn get_clicks(state: State<'_, AppState>) -> Result<u64, String> {
         Ok(state.clicks.load(Ordering::SeqCst))
     }
+
+    #[tauri::command]
+    pub fn clear_clicks(state: State<'_, AppState>) -> Result<(), String> {
+        state.clicks.store(0, Ordering::SeqCst);
+        Ok(())
+    }
 }
 
 fn on_f6_pressed(app_handle: &AppHandle) {
@@ -159,7 +165,8 @@ fn main() {
             cmds::start_clicking,
             cmds::stop_clicking,
             cmds::is_running,
-            cmds::get_clicks
+            cmds::get_clicks,
+            cmds::clear_clicks
         ])
         .setup(|app| {
             let app_handle = app.handle().clone();

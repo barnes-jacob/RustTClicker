@@ -35,6 +35,7 @@ function hook() {
     const stopBtn    = document.getElementById("stop-btn");
     const statusEl = document.getElementById("status");
     const clickEl = document.getElementById("total-clicks");
+    const clearClicksBtn = document.getElementById("clear-clicks");
 
     // console.log("hook found elements:", {
     //     startBtn: !!startBtn,
@@ -89,6 +90,15 @@ function hook() {
             statusEl.textContent = "Stopped";
         } catch (e) {
             //console.error("stop_clicking failed", e);
+        }
+    });
+
+    clearClicksBtn?.addEventListener("click", async () => {
+        try {
+            await tauriInvoke("clear_clicks");
+            clickEl.textContent = `Total Clicks: 0`;
+        } catch (e) {
+            //console.error("clear_clicks failed", e);
         }
     });
 
